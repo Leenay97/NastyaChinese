@@ -8,10 +8,11 @@
 
 body {
     overflow-x: hidden;
+    height: 100%;
 }
 
 .header {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     display: flex;
     flex-direction: column;
