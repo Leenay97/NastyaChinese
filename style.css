@@ -301,6 +301,26 @@ h1 {
     background-color: #fff;
 }
 
+.slider__nav {
+    position: absolute;
+    right: -30px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.slider__dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 8px;
+    background-color: #ffffffae;
+}
+
+.active__dot {
+    background-color: #fff;
+}
+
 .slide__header {
     position: relative;
     font-weight: bold;

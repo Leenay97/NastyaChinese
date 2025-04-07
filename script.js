@@ -151,8 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // slider.
 
+    const sliderNav = document.querySelector('.slider__nav');
+
     slidesInfo.forEach((slide) => {
-        new Slide(slide.id, slide.img, slide.name, slide.text).create()
+        new Slide(slide.id, slide.img, slide.name, slide.text).create();
+        sliderNav.innerHTML += `<div class="slider__dot" id="dot${slide.id}">`
     })
 
     let prevTouch = 0;
@@ -163,17 +166,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const touch = e.touches[0]
         // console.log(touch.clientX)
         if (touch.clientX > prevTouch) {
-            if (currSlide > 0) {
-                swipeOffset += 3;
+            if (currSlide > 0 && currSlide > 1) {
+                swipeOffset += 5;
             }
         } else {
-            if (currSlide < 6) {
-                swipeOffset -= 3;
+            if (currSlide < slidesInfo.length - 1) {
+                swipeOffset -= 5;
             }
         }
         slider.style.left = offset + swipeOffset + 'px'
-        console.log(offset)
         prevTouch = touch.clientX;
+    })
+
+    slider.addEventListener('touchend', (e) => {
+        slider.style.left = offset + 'px';
+        if ((swipeOffset) <= -50) {
+            nextSlide();
+            swipeOffset = 0;
+        }
+        if ((swipeOffset) >= 50) {
+            prevSlide();
+            swipeOffset = 0;
+        }
+        prevTouch = 0;
+    })
+
+    slider.addEventListener('touchcancel', (e) => {
+        slider.style.left = offset + 'px';
         if ((swipeOffset) <= -100) {
             nextSlide();
             swipeOffset = 0;
@@ -183,28 +202,28 @@ document.addEventListener('DOMContentLoaded', () => {
             swipeOffset = 0;
         }
     })
-    slider.addEventListener('touchend', (e) => {
-        slider.style.left = offset + 'px';
-        console.log('off')
-    })
-
-    slider.addEventListener('touchcancel', (e) => {
-        slider.style.left = offset + 'px';
-        console.log('off')
-    })
 
 
     function nextSlide() {
-        console.log(currSlide)
+
+        if (currSlide == slidesInfo.length) return;
         currSlide++;
-        offset = -width * currSlide;
+        console.log(currSlide, 'next')
+        offset = -width * (currSlide - 1);
         slider.style.left = offset + 'px';
+        document.querySelectorAll('.slider__dot').forEach(i => {
+            i.classList.remove('active-dot');
+        })
+
+
     }
 
     function prevSlide() {
-        console.log(currSlide)
+
+        if (currSlide == 1) return;
         currSlide--;
-        offset = -width * currSlide;
+        console.log(currSlide, 'prev')
+        offset = -width * (currSlide - 1);
         slider.style.left = offset + 'px';
     }
 
