@@ -182,11 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slider.addEventListener('touchend', (e) => {
         slider.style.left = offset + 'px';
-        if ((swipeOffset) <= -50) {
+        if ((swipeOffset) <= -20) {
             nextSlide();
             swipeOffset = 0;
         }
-        if ((swipeOffset) >= 50) {
+        if ((swipeOffset) >= 20) {
             prevSlide();
             swipeOffset = 0;
         }
@@ -195,11 +195,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slider.addEventListener('touchcancel', (e) => {
         slider.style.left = offset + 'px';
-        if ((swipeOffset) <= -100) {
+        if ((swipeOffset) <= -20) {
             nextSlide();
             swipeOffset = 0;
         }
-        if ((swipeOffset) >= 100) {
+        if ((swipeOffset) >= 20) {
             prevSlide();
             swipeOffset = 0;
         }

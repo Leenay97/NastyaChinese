@@ -183,7 +183,6 @@ h1 {
     color: #463478;
     font-style: normal;
     display: flex;
-    order: 1;
 }
 
 .hello__img {
@@ -192,9 +191,20 @@ h1 {
     height: 400px;
     width: 250px;
     background-repeat: no-repeat;
-    order: 0;
 }
 
+.hello__button {
+    height: 140px;
+    width: 280px;
+    background-image: url('img/button.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.3s all ease;
+}
+
+.hello__button:hover {
+    transform: scale(0.95);
+}
 
 .main .main__wrapper {
     display: flex;
