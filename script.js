@@ -83,26 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //Slider
 
     let slider = document.querySelector('.main__slider');
-    let width = 300;
-    // if (window.innerWidth < 800) {
-    //     width = 720
-    // } else if (window.innerWidth < 500) {
-    //     width = 420
-    // } else if (window.innerWidth < 400) {
-    //     width = 320
-    // }
+    let width = 320;
     let offset = 0;
     let currSlide = 1;
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth < 800) {
-            width = 700
-        } else if (window.innerWidth < 500) {
-            width = 400
-        } else if (window.innerWidth < 400) {
-            width = 300
-        }
-    })
 
     const slidesInfo = [
         {
