@@ -8,7 +8,10 @@
 
 body {
     overflow-x: hidden;
-    height: 100%;
+}
+
+h1 {
+    font-size: 40px;
 }
 
 .header {
@@ -19,6 +22,7 @@ body {
     align-items: center;
     justify-content: space-between;
     position: fixed;
+    z-index: 2;
     background-color: #fff;
 }
 
@@ -107,7 +111,7 @@ body {
     width: 100%;
     color: white;
     font-size: 20px;
-    background-color: #a9b86d;
+    background-color: #7a9b2b;
     border-radius: 10px;
     border: 1px solid #a9b86d81;
     transition: all 1s ease;
@@ -118,24 +122,202 @@ body {
 }
 
 .big {
-    transform: scale(1.1);
+    transform: scale(1.01);
     transition: all 1s ease;
+}
+
+/* Main */
+
+.main {
+    width: 100vw;
     background-color: #7a9b2b;
 }
 
-.main {
-    height: 1000px;
+.main__wrapper {
+    background-image: url('img/doodle.png');
+    background-size: 150px;
+    height: 100%;
     width: 100%;
+    padding: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+/* .main .width-container {
+    width: 1200px;
+    padding: 40px 20px;
+} */
+
+.main__hello {
+
+    height: 100vh;
+    display: flex;
+
+    justify-content: center;
+
+
+}
+
+.main__hello-container {
+    width: 80vw;
+    height: 80vh;
+    box-shadow: #d3d3d33d 5px 5px 5px 5px;
+    transition: all 1s;
+    background-image: url('img/kletka.png');
+    background-size: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    transform: rotate(-0.5deg);
+}
+
+
+.hello__text {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-size: 30px;
+    color: #463478;
+    font-style: normal;
+    display: flex;
+    order: 1;
+}
+
+.hello__img {
+    background-image: url('img/photo-восстановлено.png');
+    background-size: contain;
+    height: 400px;
+    width: 250px;
+    background-repeat: no-repeat;
+    order: 0;
+}
+
+
+.main .main__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__hello-image {
+    width: 450px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    background: url('img/photo.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 225px;
+}
+
+.main__about {
+    margin: 20px 0;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 50px;
+
+}
+
+.about__sticker {
+    /* height: 18vw;
+    width: 18vw; */
+    padding: 35px;
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    color: #5032a3;
+    position: relative;
+    box-shadow: #26330838 4px 4px 4px 4px;
+}
+
+.sticker__sticker {
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.sticker1 {
+    background-image: url('img/sticker1.png');
+    left: 10px;
+    top: -60px;
+}
+
+.sticker2 {
+    background-image: url('img/sticker3.png');
+    left: 80px;
+    top: -50px;
+}
+
+.sticker3 {
+    background-image: url('img/sticker2.png');
+    left: 100px;
+    top: -50px;
+}
+
+
+.main__feedback {
+    margin: 0 auto;
+    width: 400px;
+    position: relative;
+}
+
+.main__slider-container {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.main__slider {
+    height: 100%;
+    min-width: 400px;
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 0;
+    transition: all 0.1s ease;
+    align-items: flex-start;
     gap: 20px;
 }
 
-.blabla {
-    height: 500px;
-    width: 100%;
-    background-color: #7a9b2b;
+.main__slide {
+    width: 400px;
+    height: auto;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    font-size: 15px;
+    gap: 5px;
+    border-radius: 20px;
+    background-color: #fff;
 }
+
+.slide__header {
+    position: relative;
+    font-weight: bold;
+    color: #3198D3;
+}
+
+.slide__photo {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: #463478;
+    top: -25px;
+    left: -55px;
+    border-radius: 25px;
+}
+
+
 
 .hide {
     opacity: 0;
@@ -165,7 +347,7 @@ body {
 
 @media (max-width: 800px) {
 
-    .header__messanger {
+    /* .header__messanger {
         padding: 20px 0;
         gap: 15px;
     }
@@ -188,5 +370,5 @@ body {
 
     .message-from-corner {
         left: -15px;
-    }
+    } */
 }
