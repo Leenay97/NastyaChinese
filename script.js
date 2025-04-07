@@ -80,12 +80,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-    //slider
+    //Slider
 
     let slider = document.querySelector('.main__slider');
-    let width = 420;
+    let width = 300;
+    // if (window.innerWidth < 800) {
+    //     width = 720
+    // } else if (window.innerWidth < 500) {
+    //     width = 420
+    // } else if (window.innerWidth < 400) {
+    //     width = 320
+    // }
     let offset = 0;
     let currSlide = 1;
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 800) {
+            width = 700
+        } else if (window.innerWidth < 500) {
+            width = 400
+        } else if (window.innerWidth < 400) {
+            width = 300
+        }
+    })
 
     const slidesInfo = [
         {
@@ -158,6 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
         sliderNav.innerHTML += `<div class="slider__dot" id="dot${slide.id}">`
     })
 
+    const dots = document.querySelectorAll('.slider__dot')
+
     let prevTouch = 0;
     let swipeOffset = 0
 
@@ -167,11 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log(touch.clientX)
         if (touch.clientX > prevTouch) {
             if (currSlide > 0 && currSlide > 1) {
-                swipeOffset += 5;
+                swipeOffset += 8;
             }
         } else {
-            if (currSlide < slidesInfo.length - 1) {
-                swipeOffset -= 5;
+            if (currSlide < slidesInfo.length) {
+                swipeOffset -= 8;
             }
         }
         slider.style.left = offset + swipeOffset + 'px'
@@ -206,14 +225,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function nextSlide() {
 
-        if (currSlide == slidesInfo.length) return;
+        if (currSlide == 8) return;
         currSlide++;
         console.log(currSlide, 'next')
         offset = -width * (currSlide - 1);
         slider.style.left = offset + 'px';
-        document.querySelectorAll('.slider__dot').forEach(i => {
+        dots.forEach(i => {
             i.classList.remove('active-dot');
         })
+        dots[currSlide - 1].classList.add('active-dot')
 
 
     }
@@ -225,6 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(currSlide, 'prev')
         offset = -width * (currSlide - 1);
         slider.style.left = offset + 'px';
+        dots.forEach(i => {
+            i.classList.remove('active-dot');
+        })
+        dots[currSlide - 1].classList.add('active-dot')
     }
 
     // let k = 0;
