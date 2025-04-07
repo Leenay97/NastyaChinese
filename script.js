@@ -169,11 +169,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log(touch.clientX)
         if (touch.clientX > prevTouch) {
             if (currSlide > 0 && currSlide > 1) {
-                swipeOffset += 8;
+                swipeOffset += 3;
             }
         } else {
             if (currSlide < slidesInfo.length) {
-                swipeOffset -= 8;
+                swipeOffset -= 3;
             }
         }
         slider.style.left = offset + swipeOffset + 'px'
