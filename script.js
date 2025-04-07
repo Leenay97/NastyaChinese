@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //Slider
 
     let slider = document.querySelector('.main__slider');
-    let width = 320;
+    let width = 300;
     let offset = 0;
     let currSlide = 1;
 
